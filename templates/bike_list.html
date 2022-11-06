@@ -1,27 +1,27 @@
 {% extends 'base.html'%}
-{% block head%} 
-    <title>Ubike 2.0 列表</title>
+{% block head%}
+<title>台鐵每日各站點進出站人數</title>
 {% endblock%}
-{% block body%} 
+{% block body%}
 <table class="table  table-striped">
-    <thead>
-      <tr>
-        <th scope="col">站點名稱</th>
-        <th scope="col">行政區域</th>
-        <th scope="col">可借車輛</th>
-        <th scope="col">可停空位</th>
-      </tr>
-    </thead>
-    <tbody>
-        {% for station in data %}
-        <tr>
-            <!-- <th scope="row">1</th> -->
-            <td>{{ station.ar }}</td>
-            <td>{{ station.sarea }}</td>
-            <td>{{ station.sbi }}</td>
-            <td>{{ station.tot - station.sbi }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">乘車日</th>
+      <th scope="col">車站代碼</th>
+      <th scope="col">進站人數</th>
+      <th scope="col">出站人數</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for station in data %}
+    <tr>
+      <!-- <th scope="row">1</th> -->
+      <td>{{ station.trnOpDate}}</td>
+      <td>{{ station.staCode }}</td>
+      <td>{{ station.gateInComingCnt }}</td>
+      <td>{{ station.gateOutGoingCnt }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock%}
